@@ -1,6 +1,6 @@
 <template>
   <div class="movie-item">
-    <img v-bind:src="movie.image" alt="poster"/>
+    <img :src=movie.image>
     <h2>{{movie.title}}</h2>
     <h2>Year: {{movie.year}}</h2>
     <h2>Thumbs Up: {{movie.thumbs_up}}</h2>

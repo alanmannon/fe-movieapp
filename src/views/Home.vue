@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Movies v-bind:movies="movies"/>
+    <Movies :movies="movies"/>
   </div>
 </template>
 
