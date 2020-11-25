@@ -2,7 +2,9 @@
   <div class="movie-item">
     <img v-bind:src="movie.image" alt="poster"/>
     <h2>{{movie.title}}</h2>
-    <h2>{{movie.year}}</h2>
+    <h2>Year: {{movie.year}}</h2>
+    <h2>Thumbs Up: {{movie.thumbs_up}}</h2>
+    <h2>Thumbs Down: {{movie.thumbs_down}}</h2>
   </div>
 </template>
 

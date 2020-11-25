@@ -1,6 +1,10 @@
 <template>
   <header class="header">
     <h1>Movie App</h1>
+    <div id="nav">
+      <router-link to="/">Home</router-link>
+      <router-link to="/search">Search</router-link>
+    </div>
   </header>
 </template>
 
