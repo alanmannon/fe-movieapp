@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div v-bind:key="movie.title" v-for="movie in movies">
-    <MovieItem v-bind:movie='movie' />
+    <div :key="movie.title" v-for="movie in movies">
+    <MovieItem :movie='movie' />
     </div>
   </div>
 </template>

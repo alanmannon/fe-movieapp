@@ -1,30 +1,46 @@
 <template>
   <div class="search">
-    <h1>Search for your favorite movies!</h1>
-    <input type="text" v-model="search">
-    <button type="button" v-on:click="movieSearch()" >
-      Search
-    </button>
+    <SearchBar @movieSearch="movieSearch"/>
+    <SearchResults 
+      :key="result.id"
+      v-for="result in results"
+      :result='result' 
+    />
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import SearchBar from "../components/SearchBar.vue";
+import SearchResults from "../components/SearchResults.vue";
 export default {
+  name: "Search",
   data: function () {
     return {
-      search: "",
+      results: [],
+      error: [],
     };
   },
+  components: {
+    SearchBar,
+    SearchResults,
+  },
   methods: {
-    movieSearch: function () {
-      var params = {
-        search: this.search,
-      };
-
-      axios.get("/api/search", params).then((response) => {
-        console.log(response.data);
-      });
+    movieSearch: function (search) {
+      axios
+        .get("/api/search/", {
+          params: {
+            search: search,
+          },
+        })
+        .then((response) => {
+          this.results = response.data;
+          console.log(this.results);
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+        });
+      console.log(search);
     },
   },
 };
