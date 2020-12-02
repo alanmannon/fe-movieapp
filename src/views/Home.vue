@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="home">
     <Movies :movies="movies"/>
   </div>
 </template>
@@ -7,19 +7,23 @@
 <script>
 import axios from "axios";
 import Movies from "../components/Movies";
+
 export default {
   name: "Home",
   components: {
     Movies,
   },
+
   data: function () {
     return {
       movies: [],
     };
   },
+
   created: function () {
     this.movieIndex();
   },
+
   methods: {
     movieIndex: function () {
       axios.get("/api/movies").then((response) => {

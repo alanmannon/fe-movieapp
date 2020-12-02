@@ -13,6 +13,7 @@
 import axios from "axios";
 import SearchBar from "../components/SearchBar.vue";
 import SearchResults from "../components/SearchResults.vue";
+
 export default {
   name: "Search",
   data: function () {
@@ -21,10 +22,12 @@ export default {
       error: [],
     };
   },
+
   components: {
     SearchBar,
     SearchResults,
   },
+
   methods: {
     movieSearch: function (search) {
       axios

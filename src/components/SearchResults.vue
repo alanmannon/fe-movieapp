@@ -1,8 +1,11 @@
 <template>
   <div>
     <img :src=result.image :alt=result.title>
-    <h2>{{result.title}}</h2>
+    <router-link :to='`/show?id=${result.imdb}`'>
+      <h2>{{result.title}}</h2>
+    </router-link>
     <h2>Year: {{result.year}}</h2>
+    <br>
   </div>
 </template>
 
