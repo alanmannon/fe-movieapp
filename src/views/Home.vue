@@ -17,6 +17,7 @@ export default {
   data: function () {
     return {
       movies: [],
+      rawMovies: [],
     };
   },
 
@@ -27,9 +28,12 @@ export default {
   methods: {
     movieIndex: function () {
       axios.get("/api/movies").then((response) => {
-        this.movies = response.data;
-        console.log(this.movies);
+        this.rawMovies = response.data;
+        this.movies = this.sortedMovies(this.rawMovies);
       });
+    },
+    sortedMovies: function () {
+      return this.rawMovies.sort((a, b) => b.thumbs_up - a.thumbs_up);
     },
   },
 };

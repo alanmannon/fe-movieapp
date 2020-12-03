@@ -14,14 +14,12 @@ export default {};
 
 <style scoped>
 .header {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-}
-
-.header a {
-  color: #fff;
-  padding-right: 5px;
+  /* display: flex; */
+  /* top: 0; */
+  width: 100%;
+  /* height: 8rem; */
+  background-color: rgb(184, 17, 17);
+  /* box-shadow: 0 10px 30px 4px rgba(0, 0, 0, 0.351); */
+  align-items: center;
 }
 </style>

@@ -18,17 +18,29 @@ export default {
     return {
       movie: [],
       upCount: [],
+      downCount: [],
     };
   },
 
   created: function () {
     this.getMovie();
+    this.dbCheck();
   },
 
   methods: {
     getMovie: function () {
       axios.get("/api/search" + this.$route.query.id).then((response) => {
         this.movie = response.data;
+      });
+    },
+    dbCheck: function () {
+      axios.post("/api/movies/?imdb=" + this.$route.query.id, {
+        params: {
+          title: this.movie.title,
+          year: this.movie.year,
+          image: this.movie.poster,
+          imdb: this.movie.imdbID,
+        },
       });
     },
     thumbsUp: function () {
@@ -39,15 +51,19 @@ export default {
         )
         .then((response) => {
           this.movie.thumbs_up = response.data["thumbs_up"];
-          console.log(response.data);
         });
     },
     thumbsDown: function () {
-      this.movie.thumbs_down += 1;
+      this.downCount = this.movie.thumbs_down + 1;
       axios
-        .patch("/api/movies/?" + this.$route.query.id + "&thumb=0")
+        .patch(
+          "/api/movies/" +
+            this.$route.query.id +
+            "?thumb=0&new=" +
+            this.downCount
+        )
         .then((response) => {
-          this.movie = response.data;
+          this.movie.thumbs_down = response.data["thumbs_down"];
         });
     },
   },

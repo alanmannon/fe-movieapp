@@ -38,12 +38,10 @@ export default {
         })
         .then((response) => {
           this.results = response.data;
-          console.log(this.results);
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
         });
-      console.log(search);
     },
   },
 };
