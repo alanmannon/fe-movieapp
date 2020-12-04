@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src=result.image :alt=result.title>
+    <img :src=result.picture :alt=result.title>
     <router-link :to='`/show?id=${result.imdb}`'>
       <h2>{{result.title}}</h2>
     </router-link>

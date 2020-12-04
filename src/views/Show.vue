@@ -1,5 +1,6 @@
 <template>
   <div class="show">
+    <img :src="movie.image" />
     <h1>{{ movie.title }}</h1>
     <h4>({{ movie.year }})</h4>
     <h3>Directed by: {{ movie.director }}</h3>
@@ -24,12 +25,12 @@ export default {
 
   created: function () {
     this.getMovie();
-    this.dbCheck();
+    // this.dbCheck();
   },
 
   methods: {
     getMovie: function () {
-      axios.get("/api/search" + this.$route.query.id).then((response) => {
+      axios.get("/api/search/" + this.$route.query.id).then((response) => {
         this.movie = response.data;
       });
     },

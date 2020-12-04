@@ -17,8 +17,9 @@ export default {};
   /* display: flex; */
   /* top: 0; */
   width: 100%;
+  padding: 5px;
   /* height: 8rem; */
-  background-color: rgb(184, 17, 17);
+  /* background-color: rgb(184, 17, 17); */
   /* box-shadow: 0 10px 30px 4px rgba(0, 0, 0, 0.351); */
   align-items: center;
 }
